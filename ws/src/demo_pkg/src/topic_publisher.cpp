@@ -15,6 +15,7 @@ private:
         std_msgs::msg::String message;
         message.data = "One Message";
         RCLCPP_INFO(this->get_logger(), "Publishing: %s", message.data.c_str());
+        command_publisher_->publish(message);
     };
 
 public:
