@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "/home/edward/ROS2/ws/src/demo_pkg"
+    "cmake.sourceDirectory": "/home/edward/ROS2/ws/src/demo_pkg",
+    "files.associations": {
+        "future": "cpp"
+    }
 }
