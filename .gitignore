@@ -1,7 +1,7 @@
 /ws/build
 /ws/install
 /ws/log
-/rebot_demo_ws/build
-/rebot_demo_ws/install
-/rebot_demo_ws/log
+/robot_demo_ws/build
+/robot_demo_ws/install
+/robot_demo_ws/log
 
