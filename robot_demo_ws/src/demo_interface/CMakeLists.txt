@@ -8,6 +8,26 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  # Message
+  "msg/SensorData.msg"
+  "msg/RobotStatus.msg"
+  "msg/MotionCommand.msg"
+
+  # Services
+  "srv/GetRobotInfo.srv"
+  "srv/SetMode.srv"
+
+  DEPENDENCIES
+  builtin_interfaces
+  geometry_msgs
+)
+
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

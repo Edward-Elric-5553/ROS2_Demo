@@ -1,0 +1,37 @@
+# 获取机器人信息服务定义
+
+# 请求部分
+string robot_id          # 机器人ID，空字符串表示获取所有机器人信息
+bool include_sensors     # 是否包含传感器信息
+bool include_status      # 是否包含状态信息
+bool include_config      # 是否包含配置信息
+
+---
+
+# 响应部分
+bool success             # 服务调用是否成功
+string message           # 响应消息
+
+# 机器人基本信息
+string robot_id
+string robot_name
+string robot_type
+string firmware_version
+string hardware_version
+
+# 机器人状态信息 (如果请求包含)
+RobotStatus robot_status
+
+# 传感器信息 (如果请求包含)
+SensorData[] sensor_data
+
+# 配置信息 (如果请求包含)
+string[] config_keys
+string[] config_values
+
+# 系统信息
+builtin_interfaces/Time system_time
+float32 uptime           # 系统运行时间 (秒)
+float32 cpu_usage        # CPU使用率 (百分比)
+float32 memory_usage     # 内存使用率 (百分比)
+

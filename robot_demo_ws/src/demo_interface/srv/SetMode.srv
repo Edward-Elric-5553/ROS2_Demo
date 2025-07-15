@@ -1,0 +1,37 @@
+# 设置机器人工作模式服务定义
+
+# 请求部分
+string robot_id          # 机器人ID
+string mode              # 工作模式
+string[] parameters      # 模式参数 (键值对格式: "key=value")
+bool force_change        # 是否强制切换模式
+string reason            # 切换原因
+
+# 预定义模式常量
+string MODE_MANUAL = "manual"         # 手动模式
+string MODE_AUTO = "auto"             # 自动模式
+string MODE_PATROL = "patrol"         # 巡逻模式
+string MODE_CHARGING = "charging"     # 充电模式
+string MODE_MAINTENANCE = "maintenance" # 维护模式
+string MODE_EMERGENCY = "emergency"   # 紧急模式
+
+---
+
+# 响应部分
+bool success             # 模式切换是否成功
+string message           # 响应消息
+string previous_mode     # 之前的工作模式
+string current_mode      # 当前的工作模式
+builtin_interfaces/Time change_time  # 模式切换时间
+
+# 错误信息 (如果切换失败)
+uint32 error_code        # 错误代码
+string error_description # 错误描述
+
+# 错误代码常量定义
+uint32 ERROR_NONE = 0
+uint32 ERROR_INVALID_MODE = 1
+uint32 ERROR_ROBOT_BUSY = 2
+uint32 ERROR_PERMISSION_DENIED = 3
+uint32 ERROR_SYSTEM_ERROR = 4
+
