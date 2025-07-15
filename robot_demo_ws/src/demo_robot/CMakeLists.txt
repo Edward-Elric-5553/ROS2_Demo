@@ -8,6 +8,20 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(demo_interface REQUIRED)
+
+add_executable(motion_controller_node src/motion_controller_node.cpp)
+ament_target_dependencies(motion_controller_node
+  rclcpp
+  geometry_msgs
+  demo_interface
+)
+
+install(TARGETS motion_controller_node
+DESTINATION lib/${PROJECT_NAME}
+)
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
